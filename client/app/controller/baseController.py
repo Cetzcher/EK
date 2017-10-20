@@ -1,10 +1,12 @@
 
 class BaseController:
 
-    def __init__(self, view, model, parent):
-        self._view = view
+    def __init__(self, model, parent):
         self._model = model
         self._parent = parent
+
+    def set_view(self, view):
+        self._view = view
 
     def handle(self, json):
         raise NotImplemented

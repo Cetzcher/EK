@@ -3,7 +3,7 @@ import requests
 
 class RequestFactory:
 
-    def __init__(self, base_url="localhost:3030/api"):
+    def __init__(self, base_url="http://localhost:3030/api"):
         self.__url = base_url
 
     def login_request(self, user, passw, email):

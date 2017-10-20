@@ -4,10 +4,11 @@ from PyQt5.QtCore import Qt
 
 class RegisterView(QWidget):
 
-    def __init__(self):
+    def __init__(self, controller):
         super().__init__()
         self.init_ui()
         self.show()
+        self.__controller = controller
 
     def init_ui(self):
         self.setAutoFillBackground(True)
@@ -36,18 +37,24 @@ class RegisterView(QWidget):
         group_layout = QFormLayout()
         group.setLayout(group_layout)
 
-        ulabel = QLabel("USERNAME")
         uinput = QLineEdit()
-        pwlable = QLabel("PASSWORD")
         pwinput = QLineEdit()
+        pw_repeat = QLineEdit()
+        email = QLineEdit()
 
         group_layout.setVerticalSpacing(30)
         group_layout.setHorizontalSpacing(120)
 
-        group_layout.addRow(ulabel, uinput)
-        group_layout.addRow(QLabel("email"), QLineEdit())
-        group_layout.addRow(pwlable, pwinput)
-        group_layout.addRow(QLabel("repeat password"), QLineEdit())
-        group_layout.addRow(QPushButton("submit"))
+        group_layout.addRow( QLabel("USERNAME"), uinput)
+        group_layout.addRow(QLabel("EMAIL"), email)
+        group_layout.addRow(QLabel("PASSWORD"), pwinput)
+        group_layout.addRow(QLabel("REPEAT PW"), pw_repeat)
+
+        sub = QPushButton("submit")
+        sub.clicked.connect(lambda: self.__controller.on_submit(uinput.text(),
+                                                                pwinput.text(),
+                                                                pw_repeat.text(),
+                                                                email.text()))
+        group_layout.addRow(sub)
 
         return group

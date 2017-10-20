@@ -1,4 +1,5 @@
 from client.app.controller.login import LoginController
+from client.app.controller.register import RegisterController
 from client.app.requestMaker import RequestMaker
 from client.app.views.login import LoginView
 from client.app.views.register import RegisterView
@@ -33,9 +34,11 @@ class Controller:
         self.__cur_controller = LoginController(self.__cur_view, self.__model, self)
 
     def show_register(self):
-        self.__cur_view = RegisterView()
+        controller = RegisterController(self.__model, self)
+        self.__cur_view = RegisterView(controller)
+        controller.set_view(self.__cur_view)
+        self.__cur_controller = controller
         self.__mw.switch_to(self.__cur_view)
-        self.__cur_controller = LoginController(self.__cur_view, self.__model, self)
 
     def show_chats(self):
         pass

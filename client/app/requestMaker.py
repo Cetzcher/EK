@@ -22,5 +22,6 @@ class RequestMaker(QtCore.QThread):
                 result = item()  # run the query
             except Exception as e:
                 result = "{error:" + str(e) + "}"
+            print(result.text, result.status_code)
             dic = json.loads(result)
             self.callback.emit(dic)
