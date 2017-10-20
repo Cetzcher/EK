@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var auth = require("../core/authenticate");
+var auth = require("../core/auth");
 var user = require("../core/user");
 var chatHandler = require("../core/chat");
 
@@ -94,7 +94,8 @@ router.post("/auth/start_chat/:name", function(req, res){
             // check if the chat exists:
             var shared = chatHandler.common_chat([self, other]);
             // if there is shared chat, return the chat ID.
-            
+            console.log("SELF:");
+            console.log(self);
             console.log("shared ids for: " + self + ":" + other);
             console.log(shared);
 
