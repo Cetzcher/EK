@@ -4,10 +4,11 @@ from PyQt5.QtCore import Qt
 
 class LoginView(QWidget):
 
-    def __init__(self):
+    def __init__(self, controller):
         super().__init__()
         self.init_ui()
         self.show()
+        self.__controller = controller
 
     def init_ui(self):
         self.setAutoFillBackground(True)
@@ -29,7 +30,9 @@ class LoginView(QWidget):
         layout.addWidget(loginHeader)
         # create form group
         layout.addWidget(self.create_group())
-        layout.addWidget(QPushButton("register"))
+        to_register = QPushButton("register")
+        to_register.clicked.connect(lambda: self.__controller.to_register())
+        layout.addWidget(to_register)
 
     def create_group(self):
         group = QGroupBox()
@@ -46,6 +49,8 @@ class LoginView(QWidget):
 
         group_layout.addRow(ulabel, uinput)
         group_layout.addRow(pwlable, pwinput)
-        group_layout.addRow(QPushButton("submit"))
+        submit = QPushButton("submit")
+        submit.clicked.connect(lambda: self.__controller.login(uinput.text(), pwinput.text()))
+        group_layout.addRow(submit)
 
         return group

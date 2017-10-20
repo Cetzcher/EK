@@ -30,7 +30,9 @@ class RegisterView(QWidget):
         layout.addWidget(loginHeader)
         # create form group
         layout.addWidget(self.create_group())
-        layout.addWidget(QPushButton("already have an account? > login"))
+        to_login = QPushButton("already have an account? > login")
+        to_login.clicked.connect(lambda: self.__controller.to_login())
+        layout.addWidget(to_login)
 
     def create_group(self):
         group = QGroupBox()

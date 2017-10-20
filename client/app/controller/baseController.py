@@ -8,7 +8,8 @@ class BaseController:
     def set_view(self, view):
         self._view = view
 
-    def handle(self, json):
+    def handle(self, args):
+        # args0 is the json result, args1 is the attached data if any
         raise NotImplemented
 
     def request(self, func):

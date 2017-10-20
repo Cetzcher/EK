@@ -11,17 +11,23 @@ class RequestMaker(QtCore.QThread):
         QtCore.QThread.__init__(self)
         self.__q = queue.Queue()
 
-    def make_request(self, req_function):
+    def make_request(self, req_function, **kwargs):
         # request should be functions from the requestFactory
-        self.__q.put(req_function)
+        item = req_function, kwargs
+        self.__q.put(item)
 
     def run(self):
         while True:
             item = self.__q.get()
+            func, data = item
             try:
-                result = item()  # run the query
+                result = func()  # run the query
             except Exception as e:
-                result = "{error:" + str(e) + "}"
+                print("ERROR IN RQ MAKER" + str(e))
+                print(e.__traceback__)
+                result = object() # workaround
+                result.__dict__["text"] = "{'error':" + str(e) + "}"
+                result.__dict__["status_code"] = 500
             print(result.text, result.status_code)
-            dic = json.loads(result)
-            self.callback.emit(dic)
+            dic = json.loads(result.text, result.status_code)
+            self.callback.emit((dic, data))

@@ -29,9 +29,11 @@ class Controller:
         self.__request_thread.make_request(req)
 
     def show_login(self):
-        self.__cur_view = LoginView()
+        controller = LoginController(self.__model, self)
+        self.__cur_view = LoginView(controller)
+        controller.set_view(self.__cur_view)
+        self.__cur_controller = controller
         self.__mw.switch_to(self.__cur_view)
-        self.__cur_controller = LoginController(self.__cur_view, self.__model, self)
 
     def show_register(self):
         controller = RegisterController(self.__model, self)

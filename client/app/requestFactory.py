@@ -6,15 +6,16 @@ class RequestFactory:
     def __init__(self, base_url="http://localhost:3030/api"):
         self.__url = base_url
 
-    def login_request(self, user, passw, email):
-        return lambda: requests.post(self.__url + "/login", {"name": user,
-                                                             "password": passw,
-                                                             "email": email})
+    def login_request(self, user, passw):
+        return lambda: requests.post(self.__url + "/authenticate",
+                                     {"name": user,
+                                      "password": passw})
 
     def register_request(self, user, passw, email):
-        return lambda: requests.post(self.__url + "/register", {"name": user,
-                                                             "password": passw,
-                                                             "email": email})
+        return lambda: requests.post(self.__url + "/register",
+                                     {"name": user,
+                                      "password": passw,
+                                      "email": email})
 
     def list_user_request(self):
         return lambda: requests.get(self.__url + "/users")

@@ -18,7 +18,13 @@ class RegisterController(BaseController):
         self.request(req)  # send request, wait on callback in handle.
 
 
-    def handle(self, json):
+    def to_login(self):
+        self._parent.show_login()
+
+    def handle(self, args):
         # handle the json request upon login
+        json = args[0]
         print("== RESULT ==")
+        print("args:")
+        print(args)
         print(json)
