@@ -2,30 +2,30 @@ var User = require("../models/user");
 
 
 var exports = {
-	create_user : function(userObj, callback)
-	{
-	var username = userObj.name;
-	var mail = userObj.email;
-	var password = userObj.password;
-	// note: password hashing is done in the user scheme
-	if(!username || !mail || !password) 
-		return callback({success: false, error: "incomplete form"});
-	// attempt to create user
-	
-	var newUser = new User({
-      name: username,
-      password: password,
-      email_addr: mail
-    });
 
-	newUser.save(function(err){
-		var is_err = err ? false : true;
-		return callback({success: is_err, error: "user already exists"});
-	});
+	create_user : function(userObj, callback){
+		var username = userObj.name;
+		var mail = userObj.email;
+		var password = userObj.password;
+		// note: password hashing is done in the user scheme
+		if(!username || !mail || !password) 
+			return callback({success: false, error: "incomplete form"});
+		// attempt to create user
+		
+		var newUser = new User({
+	      name: username,
+	      password: password,
+	      email_addr: mail
+	    });
+
+		newUser.save(function(err){
+			if(err)
+				return callback({success: false, error: "user already exists" });
+			return callback({success: true, error: ""});
+		});
 	},
 
-	delete_user : function(userObj, callback)
-	{
+	delete_user : function(userObj, callback){
 		var username = userObj.name;
 		User.findOne(
 			{name: username},
@@ -37,8 +37,7 @@ var exports = {
 		});
 	},
 
-	update_user : function(userObj, callback)
-	{
+	update_user : function(userObj, callback){
 		callback(undefined);
 	},
 
@@ -59,20 +58,24 @@ var exports = {
 	    	});
 	},
 
-	exists : function(userObj, callback)
-	{
-		var username = userObj.name;
-		User.findOne({}, function (err, user) {
-			if(err)
-				return callback({success: false, error: "user doesnt exits"});
-			return callback({success: true});
+	get_all : function(callback){
+		
+		User.find({}, function(err, users) {
+			var user_arr = [];
+
+		    users.forEach(function(user) {
+		      user_arr.push(user.name);
+		    });
+
+		    return callback(user_arr);
+		});
+	},
+
+	exists : function(userObj, callback){
+		this.get_all(function(names){
+			return callback({success: names.indexOf(userObj.name) > -1});
 		});
 	}
 };
 
 module.exports = exports;
-
-function show_user(username, password, callback)
-{
-
-}

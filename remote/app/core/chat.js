@@ -99,7 +99,8 @@ ChatHandler.prototype.common_chat = function(users){
 		var shares = true;
 		// check if each user is a member of the chat
 		for(var member = 0; member < users.length; member++){
-			if(val.is_member(users[member])){
+			//console.log("chekcing if " + users[member] + " is a member ... result: " + val.is_member(users[member]));
+			if(!val.is_member(users[member])){
 				shares = false;
 				break;
 			}
@@ -107,6 +108,8 @@ ChatHandler.prototype.common_chat = function(users){
 		if(shares)
 			shared.push(key);
 	}
+	console.log(":: SHARED ::");
+	console.log(shared);
 	return shared;
 };
 

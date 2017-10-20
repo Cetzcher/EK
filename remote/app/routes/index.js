@@ -94,22 +94,17 @@ router.post("/auth/start_chat/:name", function(req, res){
             // check if the chat exists:
             var shared = chatHandler.common_chat([self, other]);
             // if there is shared chat, return the chat ID.
-            console.log("SELF:");
-            console.log(self);
-            console.log("shared ids for: " + self + ":" + other);
-            console.log(shared);
 
-            if(shared.length > 0){
-                console.log("has shared chat");
-                return res.json({success: true, id: shared, info: "chat already existed"});
-            }else{
-                console.log("creating shared chat");
+            if(shared.length === 0){
                 // if not create the chat, return chat_id
                 var chat_id = chatHandler.create_chat();
                 var chat = chatHandler.get(chat_id);
                 chat.add_user(self);
                 chat.add_user(other);
                 return res.json({success: true, id: [chat_id], info: "chat_created"});
+            }else{
+                console.log("has shared chat");
+                return res.json({success: true, id: shared, info: "chat already existed"});
             }
 
             return res.send("chat started between: " + self + " other: " + other);
