@@ -35,7 +35,7 @@ Auth.prototype.auth = function(userObj, callback){
 
 	var self = this;
 	user.get_user(userObj, function (result) {
-		if(result.success)
+		if(!result.success)
 			return callback({success: false, error: "could not authenticate user"});
 		// write token
 		var token = self.crypt(self.last, userObj.name);

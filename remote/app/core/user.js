@@ -52,7 +52,7 @@ var exports = {
 					return callback({success: false, error: 'Authentication failed. password or username is incorrect' });
 	      		// check if password matches
 	      		user.comparePassword(password, function (err, isMatch) {
-	      				var isValid = !(isMatch && !err)
+	      				var isValid = (isMatch && !err);
 	      				callback({success: isValid , error: isValid ? "" : "Authentication failed. password or username is incorrect"});
 	      		});
 	    	});

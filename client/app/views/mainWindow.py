@@ -11,6 +11,11 @@ class MainWindow(QWidget):
 
 
     def switch_to(self, widget):
+        """
+        Switches out the current toplevel widget
+        :param widget: an instance of QWidget
+        :return: None
+        """
         if(self.__active):
             self.layout().removeWidget(self.__active)
         self.__active = widget

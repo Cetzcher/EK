@@ -4,6 +4,9 @@ import queue
 import json
 
 class RequestMaker(QtCore.QThread):
+    """
+    Runs request functions and executes a callback with the results
+    """
 
     callback = QtCore.pyqtSignal(object)
 
@@ -12,6 +15,14 @@ class RequestMaker(QtCore.QThread):
         self.__q = queue.Queue()
 
     def make_request(self, req_function, **kwargs):
+        """
+        puts the request into the request Q
+        :param req_function: a callable object with a single retunr value
+              that can be interpreted using json.loads(return_value)
+        :param kwargs: any amount of key value pairs; ATM they will be passed through
+                in case the caller wants the callback to get any further information
+        :return: None
+        """
         # request should be functions from the requestFactory
         item = req_function, kwargs
         self.__q.put(item)

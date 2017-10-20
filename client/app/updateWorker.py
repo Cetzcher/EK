@@ -7,7 +7,22 @@ CUR_CHAT = "CUR_CHAT"
 
 class UpdateWorker(QtCore.QThread):
 
+
     def __init__(self, updateable, request_maker, interval=1000):
+        """
+
+        Updates any updateable object that is: the updateable must provide the
+        following methods:
+            update_available_chats
+            update_users
+            update_chat_contents
+        as well as:
+            get_request_factory
+
+        :param updateable:
+        :param request_maker:
+        :param interval:
+        """
         QtCore.QThread.__init__(self)
         # updateable must provide a token
         # thread runs some requests every interval and updates them to the updateable object
@@ -25,11 +40,11 @@ class UpdateWorker(QtCore.QThread):
         if not res_type:
             return
         elif res_type == LIST_CHATS:
-            self.__updateable.update_chats(json)  # parse data here ?
+            self.__updateable.update_available_chats(json)  # parse data here ?
         elif res_type == LIST_USERS:
             self.__updateable.update_users(json)
         elif res_type == CUR_CHAT:
-            self.__updateable.update_current_chat()
+            self.__updateable.update_chat_contents(1, 2)
         else:
             return
 
@@ -40,13 +55,20 @@ class UpdateWorker(QtCore.QThread):
             time.sleep(self.__sleep_time)
             # create the requests
             tok = self.__updateable.get_token()
-            cur_chat_id = self.__updateable.get_cur_chat()
+            ids = self.__updateable.get_chats()
 
             users_req = self.__req_factory.list_user_request()
             chats_req = self.__req_factory.list_chats_request(tok)
-            cur_chat_req = self.__req_factory.read_chat_request(tok, cur_chat_id)
+            chats = [(self.__req_factory.read_chat_request(tok, i), i) for i in range(ids)]  # get all chats.
+
+
             # sent request to the request maker
 
             self.__req_maker.make_request(users_req, req_name=LIST_USERS)
             self.__req_maker.make_request(chats_req, req_name=LIST_CHATS)
-            self.__req_maker.make_request(cur_chat_req, req_name=CUR_CHAT)
+            # send all chat requests and order them
+            order = 0
+            for item in chats:
+                req, chat_id = item  # get request function and id.
+                self.__req_maker.make_request(req, req_name=CUR_CHAT, order=order, chat_id=chat_id)
+                order += 1

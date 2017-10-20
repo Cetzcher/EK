@@ -2,6 +2,12 @@ import requests
 
 
 class RequestFactory:
+    """
+    Create request functions that can be carried out at some later point
+    each function returns a lambda expression, when called they will make a blocking request
+    to the REST api, they should not be directly from the GUI thread, but instead be handed
+    over to the RequestMaker
+    """
 
     def __init__(self, base_url="http://localhost:3030/api"):
         self.__url = base_url

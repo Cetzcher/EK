@@ -7,6 +7,7 @@ class RegisterController(BaseController):
         BaseController.__init__(self, model, parent_controller)
 
     def on_submit(self, user, pw, pw_again, email):
+        # called when the form is submitted
         print("submitting")
         if(pw != pw_again):
             return
@@ -19,6 +20,7 @@ class RegisterController(BaseController):
 
 
     def to_login(self):
+        # switches view to login
         self._parent.show_login()
 
     def handle(self, args):
