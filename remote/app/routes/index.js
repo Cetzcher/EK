@@ -76,6 +76,9 @@ router.post("/auth/list_chats", function(req, res) {
     // return list of chat_ids along with the name of the other user for displaying
 
     // TODO IMPL
+    var user = auth.is_auth(current_token);
+    var chats = chatHandler.get_chats_with_user(user);
+    res.json({chats: chats});
 });
 
 // on success: 

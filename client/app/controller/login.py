@@ -11,6 +11,8 @@ class LoginController(BaseController):
         factory = self._model.get_request_factory()
         req = factory.login_request(user, pw)
         self.request(req)
+        # TODO: move to handle, this is only for testing.
+        self._parent.show_chat()
 
     def handle(self, *args):
         # handle request reult.

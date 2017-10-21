@@ -81,7 +81,8 @@ ChatHandler.prototype.get_chats_with_user = function(user){
 	var keys = Object.keys(this.chats);
 	var m = [];
 	for(var i = 0; i < keys.length; i++){
-		var chat = this.chats[keys[i]];
+		var key = keys[i];
+		var chat = this.chats[key];
 		if(chat.is_member(user))
 			m.push(key);
 	}

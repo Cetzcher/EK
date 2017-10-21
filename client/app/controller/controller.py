@@ -1,6 +1,8 @@
+from client.app.controller.chat import ChatController
 from client.app.controller.login import LoginController
 from client.app.controller.register import RegisterController
 from client.app.requestMaker import RequestMaker
+from client.app.views.chat import ChatView
 from client.app.views.login import LoginView
 from client.app.views.register import RegisterView
 
@@ -26,7 +28,7 @@ class Controller:
         self.__request_thread.callback.connect(self.__on_request_fin)
         self.__request_thread.start()
 
-        self.show_register()
+        self.show_chat()
 
     def __on_request_fin(self, req):
         """
@@ -71,11 +73,6 @@ class Controller:
         # shows the register view
         self.__show(RegisterController, RegisterView)
 
-    def show_chats(self):
-        pass
 
-    def show_single_chat(self):
-        pass
-
-    def show_user_list(self):
-        pass
+    def show_chat(self):
+        self.__show(ChatController, ChatView)

@@ -41,4 +41,5 @@ class RequestMaker(QtCore.QThread):
                 result.__dict__["status_code"] = 500
             print(result.text, result.status_code)
             dic = json.loads(result.text, result.status_code)
+            print("DIC:", dic)
             self.callback.emit((dic, data))

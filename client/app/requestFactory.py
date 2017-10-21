@@ -1,6 +1,5 @@
 import requests
 
-
 class RequestFactory:
     """
     Create request functions that can be carried out at some later point

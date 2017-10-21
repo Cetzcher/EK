@@ -29,12 +29,16 @@ class Model:
 
     def update_chat_contents(self, chat_id, content):
         # updates the contents of a chat
+
+        self.on_update.emit()
         pass
 
     def update_users(self, userlist):
         # updates the list of existing users
+        self.on_update.emit()
         pass
 
     def update_available_chats(self, chatlist):
         # updates the list of chats that are availible to the user
+        self.on_update.emit()
         pass
