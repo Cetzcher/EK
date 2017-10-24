@@ -1,4 +1,14 @@
-from PyQt5.QtWidgets import QWidget, QLabel, QFormLayout, QLineEdit, QPushButton, QGroupBox, QHBoxLayout
+from PyQt5.QtWidgets import QWidget, QLabel, QFormLayout, \
+    QLineEdit, QPushButton, QGroupBox, \
+    QHBoxLayout, QGridLayout, QVBoxLayout, \
+    QTableWidget, QTableWidgetItem, QTextEdit, QScrollArea
+
+from PyQt5.QtCore import Qt
+
+from client.app.views.chatListView import ChatListView
+from client.app.views.currentChatView import CurrentChatView
+from client.app.views.userListView import UserListView
+
 
 class ChatView(QWidget):
 
@@ -8,49 +18,52 @@ class ChatView(QWidget):
         self.show()
         self.__controller = controller
 
-    def create_chat_list_view(self):
-        group = QGroupBox()
-        layout = QFormLayout()
-        group.setLayout(layout)
-
-        layout.addRow(QLabel("CHAT1"))
-        layout.addRow(QLabel("CHAT2"))
-        layout.addRow(QLabel("CHAT3"))
-        layout.addRow(QLabel("CHAT4"))
-        layout.addRow(QLabel("CHAT5"))
-
-        return group
-
-    def create_user_list_view(self):
-        group = QGroupBox()
-        layout = QFormLayout()
-        group.setLayout(layout)
-
-        layout.addRow(QLabel("user1"), QPushButton("add to chats"))
-        layout.addRow(QLabel("user2"), QPushButton("add to chats"))
-        layout.addRow(QLabel("user3"), QPushButton("add to chats"))
-        layout.addRow(QLabel("user4"), QPushButton("add to chats"))
-        layout.addRow(QLabel("user5"), QPushButton("add to chats"))
-
-        return group
-
-    def create_chat_view(self):
-        group = QGroupBox()
-        layout = QFormLayout()
-        group.setLayout(layout)
-
-        layout.addRow(QLabel("TEXT"), QPushButton("RESP"))
-        layout.addRow(QLabel("TEXT"), QPushButton("REsp"))
-        layout.addRow(QLabel("TEXT"), QPushButton("RESP"))
-
-        return group
-
-
     def init_ui(self):
+        self.setAutoFillBackground(True)
+        pal = self.palette()
+        pal.setColor(self.backgroundRole(), Qt.white)
+        self.setPalette(pal)
+
+        self.setAutoFillBackground(True)
+        pal = self.palette()
+        pal.setColor(self.backgroundRole(), Qt.white)
+        self.setPalette(pal)
         print("shwoing chat")
 
-        layout = QHBoxLayout()
+        layout = QGridLayout()
         self.setLayout(layout)
-        layout.addWidget(self.create_chat_list_view())
-        layout.addWidget(self.create_chat_view())
-        layout.addWidget(self.create_user_list_view())
+
+        #chatlist = ChatListView(self, ["chat1", "chat2", "chat3"])
+        #userlist = UserListView(self, ["user1", "user2", "user3"])
+        #curchat = CurrentChatView(self, ["msg1", "msg2"])
+
+        #layout.addWidget(chatlist, 0, 0)
+        #layout.addWidget(curchat, 0, 1)
+        #layout.addWidget(userlist, 0, 2)
+
+        #self.__widgets = [chatlist, userlist, curchat]
+        self.__widgets = []
+        self.update_all(["chat1", "chat2", "chat3"], ["user1", "user2", "user3"], [{"msg": "hello friend", "sent_by": "pierre"}])
+
+    def update_all(self, chats, users, cur_chat):
+        layout = self.layout()
+        for widget in self.__widgets:
+            layout.removeWidget(widget)
+            widget.setParent(None)
+
+        chatlist = ChatListView (self, chats)
+        userlist = UserListView(self, users)
+        curchat = CurrentChatView(self, cur_chat)
+
+        lp = QScrollArea()
+        lp.setWidget(chatlist)
+        layout.addWidget(lp, 0, 0)
+
+        layout.addWidget(curchat, 0, 1)
+
+        ul = QScrollArea()
+        ul.setWidget(userlist)
+        layout.addWidget(ul, 0, 2)
+
+        self.__widgets = [chatlist, userlist, curchat]
+

@@ -3,13 +3,13 @@ from PyQt5 import QtCore
 
 class Model:
 
-    on_update = QtCore.pyqtSignal()
 
     def __init__(self):
         self.__request_factory = RequestFactory()
         self.__tok = None
         self.__chat_ids = []
         self.__chat_msgs = {}  # mapping of ID to content
+        self.__users = []
 
     def get_request_factory(self):
         # returns the request factory
@@ -23,22 +23,18 @@ class Model:
         # gets a list of all chat ids
         return self.__chat_ids
 
+    def get_users(self):
+        return self.__users
+
     def get_token(self):
         # gets the current token
         return self.__tok
 
-    def update_chat_contents(self, chat_id, content):
-        # updates the contents of a chat
-
-        self.on_update.emit()
+    def set_chats(self, chats):
         pass
 
-    def update_users(self, userlist):
-        # updates the list of existing users
-        self.on_update.emit()
-        pass
+    def set_users(self, users):
+        self.__users = users
 
-    def update_available_chats(self, chatlist):
-        # updates the list of chats that are availible to the user
-        self.on_update.emit()
+    def set_current_chat(self):
         pass

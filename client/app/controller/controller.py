@@ -2,6 +2,7 @@ from client.app.controller.chat import ChatController
 from client.app.controller.login import LoginController
 from client.app.controller.register import RegisterController
 from client.app.requestMaker import RequestMaker
+from client.app.views.currentChatView import CurrentChatView
 from client.app.views.chat import ChatView
 from client.app.views.login import LoginView
 from client.app.views.register import RegisterView
@@ -28,6 +29,7 @@ class Controller:
         self.__request_thread.callback.connect(self.__on_request_fin)
         self.__request_thread.start()
 
+        #self.show_login()
         self.show_chat()
 
     def __on_request_fin(self, req):
@@ -37,18 +39,16 @@ class Controller:
                a associative array of key value pairs.
         :return: None
         """
-        try:
-            self.__cur_controller.handle(req)  # let the current controller handle the request.
-        except Exception as e:
-            print(e)
+        self.__cur_controller.handle(*req)  # let the current controller handle the request.
 
-    def make_request(self, req):
+
+    def make_request(self, req, **kwargs):
         """
         Helper for making requests to the request worker thread
         :param req: the request to be executed by the thread
         :return: None
         """
-        self.__request_thread.make_request(req)
+        self.__request_thread.make_request(req, **kwargs)
 
     def __show(self, controllerT, viewT):
         """

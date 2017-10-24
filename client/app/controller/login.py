@@ -11,8 +11,7 @@ class LoginController(BaseController):
         factory = self._model.get_request_factory()
         req = factory.login_request(user, pw)
         self.request(req)
-        # TODO: move to handle, this is only for testing.
-        self._parent.show_chat()
+        print("LOGGING IN")
 
     def handle(self, *args):
         # handle request reult.
@@ -20,6 +19,16 @@ class LoginController(BaseController):
         json = args[0]
         print("== RESULT ==")
         print(json)
+        success = json["success"]
+        if(bool(success)):
+            tok = json["token"]
+            self._model.set_token(tok)
+            self._parent.show_chat()
+        else:
+            err = json["error"]
+            print(err)
+
+
 
     def to_register(self):
         # called upon clicking the 'to register' button. Switches to the register view

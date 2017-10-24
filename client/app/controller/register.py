@@ -23,10 +23,14 @@ class RegisterController(BaseController):
         # switches view to login
         self._parent.show_login()
 
-    def handle(self, args):
+    def handle(self, *args):
         # handle the json request upon login
         json = args[0]
         print("== RESULT ==")
         print("args:")
         print(args)
         print(json)
+        if(bool(json["success"])):
+            self._parent.show_login()
+        else:
+            print(json["error"])

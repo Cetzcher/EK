@@ -16,7 +16,11 @@ class MainWindow(QWidget):
         :param widget: an instance of QWidget
         :return: None
         """
-        if(self.__active):
+        try:
             self.layout().removeWidget(self.__active)
+            self.__active.setParent(None)
+            print("removing:", self.__active)
+        except Exception as e:
+            pass
         self.__active = widget
         self.layout().addWidget(widget)

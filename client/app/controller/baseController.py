@@ -12,6 +12,7 @@ class BaseController:
         """
         self._model = model
         self._parent = parent
+        self._view = None
 
     def set_view(self, view):
         """
@@ -30,7 +31,7 @@ class BaseController:
         # args0 is the json result, args1 is the attached data if any
         raise NotImplementedError()
 
-    def request(self, func):
+    def request(self, func, **kwargs):
         if callable(func):
-            return self._parent.make_request(func)
+            return self._parent.make_request(func, **kwargs)
         raise Exception()

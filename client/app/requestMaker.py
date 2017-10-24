@@ -24,6 +24,7 @@ class RequestMaker(QtCore.QThread):
         :return: None
         """
         # request should be functions from the requestFactory
+        print("putting item")
         item = req_function, kwargs
         self.__q.put(item)
 
@@ -33,13 +34,10 @@ class RequestMaker(QtCore.QThread):
             func, data = item
             try:
                 result = func()  # run the query
+                dic = json.loads(result.text, result.status_code)
+                self.callback.emit((dic, data))
             except Exception as e:
                 print("ERROR IN RQ MAKER" + str(e))
                 print(e.__traceback__)
-                result = object() # workaround
-                result.__dict__["text"] = "{'error':" + str(e) + "}"
-                result.__dict__["status_code"] = 500
-            print(result.text, result.status_code)
-            dic = json.loads(result.text, result.status_code)
-            print("DIC:", dic)
-            self.callback.emit((dic, data))
+                self.callback.emit((None, {}))
+

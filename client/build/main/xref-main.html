@@ -462,6 +462,7 @@ imported by:
  &#8226;   <a href="#PyQt5.QtGui">PyQt5.QtGui</a>
  &#8226;   <a href="#PyQt5.QtPrintSupport">PyQt5.QtPrintSupport</a>
  &#8226;   <a href="#PyQt5.QtWidgets">PyQt5.QtWidgets</a>
+ &#8226;   <a href="#client.app.models.model">client.app.models.model</a>
  &#8226;   <a href="#client.app.requestMaker">client.app.requestMaker</a>
 
   </div>
@@ -503,7 +504,9 @@ imported by:
  &#8226;   <a href="#PyQt5.QtGui">PyQt5.QtGui</a>
  &#8226;   <a href="#PyQt5.QtPrintSupport">PyQt5.QtPrintSupport</a>
  &#8226;   <a href="#PyQt5.QtWidgets">PyQt5.QtWidgets</a>
+ &#8226;   <a href="#client.app.models.model">client.app.models.model</a>
  &#8226;   <a href="#client.app.requestMaker">client.app.requestMaker</a>
+ &#8226;   <a href="#client.app.views.chat">client.app.views.chat</a>
  &#8226;   <a href="#client.app.views.login">client.app.views.login</a>
  &#8226;   <a href="#client.app.views.register">client.app.views.register</a>
 
@@ -566,6 +569,7 @@ imported by:
     <a href="#PyQt5.Qt">PyQt5.Qt</a>
  &#8226;   <a href="#PyQt5.QtPrintSupport">PyQt5.QtPrintSupport</a>
  &#8226;   <a href="#client.app.app">client.app.app</a>
+ &#8226;   <a href="#client.app.views.chat">client.app.views.chat</a>
  &#8226;   <a href="#client.app.views.login">client.app.views.login</a>
  &#8226;   <a href="#client.app.views.mainWindow">client.app.views.mainWindow</a>
  &#8226;   <a href="#client.app.views.register">client.app.views.register</a>
@@ -2576,6 +2580,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#client.app.controller.baseController">client.app.controller.baseController</a>
+ &#8226;   <a href="#client.app.controller.chat">client.app.controller.chat</a>
  &#8226;   <a href="#client.app.controller.controller">client.app.controller.controller</a>
  &#8226;   <a href="#client.app.controller.login">client.app.controller.login</a>
  &#8226;   <a href="#client.app.controller.register">client.app.controller.register</a>
@@ -2594,8 +2599,26 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#client.app.controller.login">client.app.controller.login</a>
+    <a href="#client.app.controller.chat">client.app.controller.chat</a>
+ &#8226;   <a href="#client.app.controller.login">client.app.controller.login</a>
  &#8226;   <a href="#client.app.controller.register">client.app.controller.register</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="client.app.controller.chat"></a>
+  <a target="code" href="/home/pierre/school/syt/borm/EK/code/client/app/controller/chat.py" type="text/plain"><tt>client.app.controller.chat</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#client.app.controller">client.app.controller</a>
+ &#8226;   <a href="#client.app.controller.baseController">client.app.controller.baseController</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#client.app.controller.controller">client.app.controller.controller</a>
 
   </div>
 
@@ -2607,9 +2630,11 @@ imported by:
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#client.app.controller">client.app.controller</a>
+ &#8226;   <a href="#client.app.controller.chat">client.app.controller.chat</a>
  &#8226;   <a href="#client.app.controller.login">client.app.controller.login</a>
  &#8226;   <a href="#client.app.controller.register">client.app.controller.register</a>
  &#8226;   <a href="#client.app.requestMaker">client.app.requestMaker</a>
+ &#8226;   <a href="#client.app.views.chat">client.app.views.chat</a>
  &#8226;   <a href="#client.app.views.login">client.app.views.login</a>
  &#8226;   <a href="#client.app.views.register">client.app.views.register</a>
 
@@ -2677,7 +2702,9 @@ imported by:
   <a target="code" href="/home/pierre/school/syt/borm/EK/code/client/app/models/model.py" type="text/plain"><tt>client.app.models.model</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#client.app.models">client.app.models</a>
+    <a href="#PyQt5">PyQt5</a>
+ &#8226;   <a href="#PyQt5.QtCore">PyQt5.QtCore</a>
+ &#8226;   <a href="#client.app.models">client.app.models</a>
  &#8226;   <a href="#client.app.requestFactory">client.app.requestFactory</a>
 
   </div>
@@ -2736,9 +2763,28 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#client.app.views.login">client.app.views.login</a>
+    <a href="#client.app.views.chat">client.app.views.chat</a>
+ &#8226;   <a href="#client.app.views.login">client.app.views.login</a>
  &#8226;   <a href="#client.app.views.mainWindow">client.app.views.mainWindow</a>
  &#8226;   <a href="#client.app.views.register">client.app.views.register</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="client.app.views.chat"></a>
+  <a target="code" href="/home/pierre/school/syt/borm/EK/code/client/app/views/chat.py" type="text/plain"><tt>client.app.views.chat</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#PyQt5.QtCore">PyQt5.QtCore</a>
+ &#8226;   <a href="#PyQt5.QtWidgets">PyQt5.QtWidgets</a>
+ &#8226;   <a href="#client.app.views">client.app.views</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#client.app.controller.controller">client.app.controller.controller</a>
 
   </div>
 
