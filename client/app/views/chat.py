@@ -33,17 +33,12 @@ class ChatView(QWidget):
         layout = QGridLayout()
         self.setLayout(layout)
 
-        #chatlist = ChatListView(self, ["chat1", "chat2", "chat3"])
-        #userlist = UserListView(self, ["user1", "user2", "user3"])
-        #curchat = CurrentChatView(self, ["msg1", "msg2"])
-
-        #layout.addWidget(chatlist, 0, 0)
-        #layout.addWidget(curchat, 0, 1)
-        #layout.addWidget(userlist, 0, 2)
-
-        #self.__widgets = [chatlist, userlist, curchat]
         self.__widgets = []
-        self.update_all(["chat1", "chat2", "chat3"], ["user1", "user2", "user3"], [{"msg": "hello friend", "sent_by": "pierre"}])
+        self.__chat_list = None
+        self.__chat_current = None
+        self.__user_list = None
+
+        self.update_all(["None"], [], [])
 
     def update_all(self, chats, users, cur_chat):
         layout = self.layout()
@@ -51,19 +46,28 @@ class ChatView(QWidget):
             layout.removeWidget(widget)
             widget.setParent(None)
 
-        chatlist = ChatListView (self, chats)
-        userlist = UserListView(self, users)
-        curchat = CurrentChatView(self, cur_chat)
+
+        self.__chat_list = ChatListView (self, chats)
+        self.__chat_current = CurrentChatView(self, cur_chat)
+        self.__user_list = UserListView(self, users)
 
         lp = QScrollArea()
-        lp.setWidget(chatlist)
+        lp.setWidget( self.__chat_list)
         layout.addWidget(lp, 0, 0)
+        lp.setMinimumWidth(350)
 
-        layout.addWidget(curchat, 0, 1)
+        layout.addWidget(self.__chat_current, 0, 1)
 
         ul = QScrollArea()
-        ul.setWidget(userlist)
+        ul.setWidget(self.__user_list)
+        ul.setMinimumWidth(390)
         layout.addWidget(ul, 0, 2)
 
-        self.__widgets = [chatlist, userlist, curchat]
+        self.__widgets = [self.__chat_list,  self.__user_list,  self.__chat_current]
+
+    def on_send_msg(self, msg):
+        self.__controller.send(msg)
+
+    def update_text(self, msg):
+        self.__chat_current.chatbox.setText(self.__chat_current.chatbox.toPlainText() + "\n" + msg)
 

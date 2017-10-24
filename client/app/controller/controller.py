@@ -29,8 +29,7 @@ class Controller:
         self.__request_thread.callback.connect(self.__on_request_fin)
         self.__request_thread.start()
 
-        #self.show_login()
-        self.show_chat()
+        self.show_login()
 
     def __on_request_fin(self, req):
         """

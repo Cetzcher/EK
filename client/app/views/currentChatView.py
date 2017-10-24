@@ -29,9 +29,16 @@ class CurrentChatView(QWidget):
         gb_layout = QGridLayout()
         reply = QLineEdit()
         submit = QPushButton("submit")
+        def on_reply():
+            parent.update_text("you said: " + reply.text())
+            parent.on_send_msg(reply.text())
+
+        submit.clicked.connect(on_reply)
         gb_layout.addWidget(reply, 0, 0)
         gb_layout.addWidget(submit, 0, 1)
         gb.setLayout(gb_layout)
         layout.addWidget(gb)
+
+        self.chatbox = chatBox
 
         self.setLayout(layout)

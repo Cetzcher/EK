@@ -6,6 +6,9 @@ from client.app.views.mainWindow import MainWindow
 from client.app.models.model import Model
 import os
 
+from client.app.websocketHandler import WebsocketHandler
+
+
 def main():
     # read style sheet
     s = ""

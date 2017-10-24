@@ -52,7 +52,7 @@ app.all('/*', function(req, res, next) {
   	}
 });
 
-app.use('/api', require(__dirname + '/app/routes')); // dispatch to routers 
+app.use('/api', require(__dirname + '/app/routes')(app)); // dispatch to routers 
 
 // when no route has been found, serve 404.
 app.use("/*", function(req, res, next) {
@@ -64,3 +64,4 @@ app.use("/*", function(req, res, next) {
 app.listen(port);
 console.log('There will be dragons: http://localhost:' + port);
 console.log("views @: " + __dirname + "/app/views");
+console.log(__dirname + '/app/routes/websocketRoutes')

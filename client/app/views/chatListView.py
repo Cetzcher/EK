@@ -6,7 +6,7 @@ class ChatListView(QWidget):
     def __init__(self, parent, chats):
         QWidget.__init__(self, parent)
         layout = QFormLayout()
-
+        self.setMinimumWidth(200)
         for c in chats:
             layout.addRow(QLabel(str(c)), QPushButton("Show"))
 

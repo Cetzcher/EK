@@ -1,6 +1,7 @@
 function Chat(){
 	this.users = [];
 	this.msgs = [];
+	this.callback = null;
 }
 
 // add a user to the chat
@@ -11,7 +12,11 @@ Chat.prototype.add_user = function(user){
 // send a msg to the chat, true if msg has been sent, false otherwise.
 Chat.prototype.send = function(user, txt){
 	if(this.is_member(user)){
-		this.msgs.push({msg: txt, read_by: [], time: "LOCAL TIME", sender: user});
+		var msg_to_send = {msg: txt, read_by: [], time: "LOCAL TIME", sender: user}; 
+		this.msgs.push(msg_to_send);
+		// run the callback
+		if(this.callback)
+			this.callback(msg_to_send);
 		return true; // sent
 	}
 	return false;
@@ -51,6 +56,10 @@ Chat.prototype.get_unread = function(by){
 // check if the user is a member of this chat
 Chat.prototype.is_member = function(user){
 	return this.users.indexOf(user)  > -1; 
+};
+
+Chat.prototype.set_callback = function(callback){
+	this.callback = callback;
 };
 
 //===========================================
@@ -114,6 +123,12 @@ ChatHandler.prototype.common_chat = function(users){
 	return shared;
 };
 
+ChatHandler.prototype.get_group_chat = function(){
+	return this.chats[0]; // group chat is always the first one to be created.
+};
 
-module.exports = new ChatHandler();
+var handler = new ChatHandler();
+handler.create_chat(); // creates the group chat.
+
+module.exports = handler;
 
