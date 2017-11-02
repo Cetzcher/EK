@@ -1,8 +1,15 @@
+/*
 function Chat(){
 	this.users = [];
+	this.user_sockets = {};
 	this.msgs = [];
 	this.callback = null;
 }
+
+Chat.prototype.add_user_and_socket = function(user, socket){
+	this.add_user(user);
+	this.user_sockets[user] = socket;
+};
 
 // add a user to the chat
 Chat.prototype.add_user = function(user){
@@ -61,6 +68,35 @@ Chat.prototype.is_member = function(user){
 Chat.prototype.set_callback = function(callback){
 	this.callback = callback;
 };
+*/
+
+function Chat(){
+	this.users = {};
+}
+
+Chat.prototype.send = function(sender, msg){
+	var keys = Object.keys(this.users);
+	for (var k = 0; k < keys.length; k++){
+		var key = keys[k];
+		var ws = this.users[key];
+		// send the msg to each user
+		ws.send(sender + " said: " + msg);
+	}
+};
+
+Chat.prototype.is_member = function(user){
+	return this.users[user] !== undefined;
+};
+
+Chat.prototype.add_user = function(user, ws){
+	console.log("adding user: " + user + "to the group, socket is: ");
+	console.log(ws);	
+	this.users[user] = ws;
+};
+
+Chat.prototype.remove = function(user){
+	delete this.users[users];
+};
 
 //===========================================
 //----------------CHAT HANDLER---------------
@@ -77,6 +113,9 @@ ChatHandler.prototype.create_chat = function(){
 	var id = this.last_id;
 	this.last_id++;
 	this.chats[id] = new Chat();
+	console.log('creating chat' + this.last_id);
+	console.log('listing chats');
+	console.log(this.chats);
 	return id;
 };
 
@@ -118,17 +157,17 @@ ChatHandler.prototype.common_chat = function(users){
 		if(shares)
 			shared.push(key);
 	}
-	console.log(":: SHARED ::");
-	console.log(shared);
 	return shared;
 };
 
 ChatHandler.prototype.get_group_chat = function(){
+	console.log('getting group chat');
 	return this.chats[0]; // group chat is always the first one to be created.
 };
 
 var handler = new ChatHandler();
 handler.create_chat(); // creates the group chat.
+
 
 module.exports = handler;
 

@@ -13,7 +13,7 @@ class ChatController(BaseController):
         BaseController.__init__(self, model, parent_controller)
         # start a timer to periodically update the GUI
         self.__factory = self._model.get_request_factory()
-        self.__ws_handler = WebsocketHandler("ws://localhost:3030/api/echo")
+        self.__ws_handler = WebsocketHandler("ws://localhost:3030/api/echo", {"token": model.get_token()})
         self.__ws_handler.msg_recv_callback.connect(self.msg_recv)
         self.__ws_handler.start()
 

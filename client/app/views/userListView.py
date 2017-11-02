@@ -18,4 +18,7 @@ class UserListView(QWidget):
 
             layout.addRow(QLabel(str(u)), group)
 
+        refresh = QPushButton("Refresh")
+        #refresh.clicked.connect(self.parent())
+        layout.addRow(refresh)
         self.setLayout(layout)

@@ -38,7 +38,8 @@ class ChatView(QWidget):
         self.__chat_current = None
         self.__user_list = None
 
-        self.update_all(["None"], [], [])
+        self.update_all([] ,[] , "some text")
+
 
     def update_all(self, chats, users, cur_chat):
         layout = self.layout()

@@ -16,7 +16,9 @@ var db = mongoose.connection;
 var bodyParser  = require('body-parser');
 var config      = require('./config/database'); // get db config file
 var User        = require('./app/models/user'); // get the mongoose model
- 
+var expressWs = require('express-ws')(app);
+
+
 // get our request parameters
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -52,7 +54,7 @@ app.all('/*', function(req, res, next) {
   	}
 });
 
-app.use('/api', require(__dirname + '/app/routes')(app)); // dispatch to routers 
+app.use('/api', require(__dirname + '/app/routes')); // dispatch to routers 
 
 // when no route has been found, serve 404.
 app.use("/*", function(req, res, next) {

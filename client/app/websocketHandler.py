@@ -7,11 +7,12 @@ class WebsocketHandler(QtCore.QThread):
     msg_recv_callback = QtCore.pyqtSignal(object)
     err_callback = QtCore.pyqtSignal(object)
 
-    def __init__(self, url):
+    def __init__(self, url, headers):
         QtCore.QThread.__init__(self)
         self.__send_q = queue.Queue()
         self.__ws = None
         self.__url = url
+        self.__headers = headers
 
     class sender(QtCore.QThread):
 
@@ -49,7 +50,8 @@ class WebsocketHandler(QtCore.QThread):
                 ws = websocket.WebSocketApp(self.__url,
                                             on_message=self.__msg_recv,
                                             on_error=self.__msg_err,
-                                            on_close=self.__close)
+                                            on_close=self.__close,
+                                            header=self.__headers)
 
                 sender = WebsocketHandler.sender(self.__send_q)
                 ws.on_open = sender.start_with_args

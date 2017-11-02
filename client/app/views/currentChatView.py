@@ -4,7 +4,7 @@ from PyQt5.QtCore import Qt
 
 class CurrentChatView(QWidget):
 
-    def __init__(self, parent, chats):
+    def __init__(self, parent, chat_text):
         QWidget.__init__(self, parent)
         self.setMinimumWidth(900)
         self.setMinimumHeight(600)
@@ -16,13 +16,9 @@ class CurrentChatView(QWidget):
         layout.addWidget(members, 0, 0)
 
         chatBox = QTextEdit()
+        chatBox.setText(str(chat_text))
         chatBox.setReadOnly(True)
         layout.addWidget(chatBox, 1, 0)
-        txt = ""
-        for chat in chats:
-            msg, sent_by = chat["msg"], chat["sent_by"]
-            txt += sent_by + ": " + msg + "\n"
-        chatBox.setText(txt)
 
 
         gb = QGroupBox()
@@ -30,7 +26,6 @@ class CurrentChatView(QWidget):
         reply = QLineEdit()
         submit = QPushButton("submit")
         def on_reply():
-            parent.update_text("you said: " + reply.text())
             parent.on_send_msg(reply.text())
 
         submit.clicked.connect(on_reply)
