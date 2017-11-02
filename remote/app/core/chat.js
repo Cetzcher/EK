@@ -23,7 +23,7 @@ Chat.prototype.add_user = function(user, ws){
 };
 
 Chat.prototype.remove = function(user){
-	delete this.users[users];
+	delete this.users[user];
 };
 
 module.exports = new Chat();

@@ -87,6 +87,13 @@ router.ws('/echo', function(ws, req) {
         console.log(msg + "recieved from: " + user);
         group.send(user, msg);
     });
+
+    ws.on("close", function () {
+        console.log("removing user from WS");
+        group.remove(user);
+    });
+
+
     console.log('socket', req.testing);
 });
 

@@ -41,26 +41,22 @@ class WebsocketHandler(QtCore.QThread):
         print("error: ", err)
         self.err_callback.emit(err)
 
-    def __close(self, ws):
-        pass
-
     def run(self):
-            while True:
-                #websocket.enableTrace(True)
-                ws = websocket.WebSocketApp(self.__url,
-                                            on_message=self.__msg_recv,
-                                            on_error=self.__msg_err,
-                                            on_close=self.__close,
-                                            header=self.__headers)
+        #websocket.enableTrace(True)
+        ws = websocket.WebSocketApp(self.__url,
+                                    on_message=self.__msg_recv,
+                                    on_error=self.__msg_err,
+                                    header=self.__headers)
 
-                sender = WebsocketHandler.sender(self.__send_q)
-                ws.on_open = sender.start_with_args
-                print("running webserver")
-                ws.run_forever()
+        sender = WebsocketHandler.sender(self.__send_q)
+        ws.on_open = sender.start_with_args
+        self.__ws = ws
+        ws.run_forever()
 
     def quit(self):
         QtCore.QThread.quit(self)
         self.__ws.close()
+        print("quitted socket")
 
 
 

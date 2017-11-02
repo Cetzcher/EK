@@ -1,8 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QLabel, QFormLayout, \
-    QLineEdit, QPushButton, QGroupBox, \
-    QHBoxLayout, QGridLayout, QVBoxLayout, \
-    QTableWidget, QTableWidgetItem, QTextEdit, QScrollArea
-
+from PyQt5.QtWidgets import QWidget, QGridLayout
 from PyQt5.QtCore import Qt
 
 from client.app.views.currentChatView import CurrentChatView
@@ -38,4 +34,3 @@ class ChatView(QWidget):
 
     def update_text(self, msg):
         self.__chat_current.chatbox.setText(self.__chat_current.chatbox.toPlainText() + "\n" + msg)
-

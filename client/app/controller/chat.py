@@ -1,5 +1,4 @@
-from PyQt5.QtCore import QTimer, Qt
-
+import atexit
 from client.app.controller.baseController import BaseController
 from client.app.websocketHandler import WebsocketHandler
 
@@ -16,6 +15,7 @@ class ChatController(BaseController):
         self.__ws_handler = WebsocketHandler("ws://localhost:3030/api/echo", {"token": model.get_token()})
         self.__ws_handler.msg_recv_callback.connect(self.msg_recv)
         self.__ws_handler.start()
+        atexit.register(lambda : self.__ws_handler.quit())
 
     def send(self, msg):
         self.__ws_handler.queue_message(msg)

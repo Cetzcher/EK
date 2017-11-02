@@ -25,22 +25,25 @@ class RequestFactory:
     def list_user_request(self):
         return lambda: requests.get(self.__url + "/users")
 
+    @DeprecationWarning
     def list_chats_request(self, token):
         return lambda: requests.post(self.__url + "/auth/list_chats",
                                      { "token": token })
 
+    @DeprecationWarning
     def start_chat_request(self, token, other_user):
         return lambda: requests.post(self.__url + "/auth/start_chat/" + str(other_user),
                                      { "token": token })
-
+    @DeprecationWarning
     def read_chat_request(self, token, chat_id):
         return lambda: requests.post(self.__url + "/auth/read/" + str(chat_id),
                                      { "token": token })
 
+    @DeprecationWarning
     def read_all_chat_request(self, token, chat_id):
         return lambda: requests.post(self.__url + "/auth/read_all/" + str(chat_id),
                                      { "token": token })
-
+    @DeprecationWarning
     def send_chat_request(self, token, chat_id, text):
         return lambda: requests.post(self.__url + "/auth/send/" + str(chat_id),
                                      { "token": token, "msg": text })

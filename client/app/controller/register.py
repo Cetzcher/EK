@@ -1,4 +1,5 @@
 from client.app.controller.baseController import BaseController
+from PyQt5.QtWidgets import QMessageBox
 
 
 class RegisterController(BaseController):
@@ -33,4 +34,5 @@ class RegisterController(BaseController):
         if(bool(json["success"])):
             self._parent.show_login()
         else:
-            print(json["error"])
+            err = json["error"]
+            QMessageBox.about(self._view, "error", err)

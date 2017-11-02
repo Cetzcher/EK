@@ -1,5 +1,5 @@
 from client.app.controller.baseController import BaseController
-
+from PyQt5.QtWidgets import QMessageBox
 
 class LoginController(BaseController):
 
@@ -26,8 +26,8 @@ class LoginController(BaseController):
             self._parent.show_chat()
         else:
             err = json["error"]
-            print(err)
-
+            # show invalid login to user.
+            QMessageBox.about(self._view, "error", err)
 
 
     def to_register(self):

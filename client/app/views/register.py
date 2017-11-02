@@ -41,7 +41,9 @@ class RegisterView(QWidget):
 
         uinput = QLineEdit()
         pwinput = QLineEdit()
+        pwinput.setEchoMode(QLineEdit.Password)
         pw_repeat = QLineEdit()
+        pw_repeat.setEchoMode(QLineEdit.Password)
         email = QLineEdit()
 
         group_layout.setVerticalSpacing(30)

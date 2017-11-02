@@ -6,6 +6,8 @@ from client.app.views.currentChatView import CurrentChatView
 from client.app.views.chat import ChatView
 from client.app.views.login import LoginView
 from client.app.views.register import RegisterView
+from PyQt5.QtWidgets import QMessageBox
+
 
 class Controller:
     """
@@ -38,7 +40,14 @@ class Controller:
                a associative array of key value pairs.
         :return: None
         """
-        self.__cur_controller.handle(*req)  # let the current controller handle the request.
+        try:
+            self.__cur_controller.handle(*req)  # let the current controller handle the request.
+        except Exception as e:
+            # display the error to the user
+            QMessageBox.about(self.__mw, "An error occoured", "an error occoured while making a request,"
+                                                              " check if you are connected")
+            print(e)
+            print(str(e))
 
 
     def make_request(self, req, **kwargs):
