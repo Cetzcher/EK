@@ -7,7 +7,7 @@ from client.app.views.chat import ChatView
 from client.app.views.login import LoginView
 from client.app.views.register import RegisterView
 from PyQt5.QtWidgets import QMessageBox
-
+from PyQt5 import QtWidgets
 
 class Controller:
     """

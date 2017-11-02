@@ -12,7 +12,9 @@ class ChatController(BaseController):
         BaseController.__init__(self, model, parent_controller)
         # start a timer to periodically update the GUI
         self.__factory = self._model.get_request_factory()
-        self.__ws_handler = WebsocketHandler("ws://localhost:3030/api/echo", {"token": model.get_token()})
+        ws_url = self.__factory.get_url()
+        ws_url = "ws" + ws_url[ws_url.index(":"):] + "/echo"
+        self.__ws_handler = WebsocketHandler(ws_url, {"token": model.get_token()})
         self.__ws_handler.msg_recv_callback.connect(self.msg_recv)
         self.__ws_handler.start()
         atexit.register(lambda : self.__ws_handler.quit())
@@ -24,4 +26,10 @@ class ChatController(BaseController):
         # get text from chat box.
         # append msg to it
         self._view.update_text(msg)
+
+    def logout(self):
+        # switch views and close connection.
+        self.__ws_handler.quit()
+        self._parent.show_login()
+        pass
 

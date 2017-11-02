@@ -9,10 +9,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/controller/register.py" afterPath="$PROJECT_DIR$/client/app/controller/register.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/requestFactory.py" afterPath="$PROJECT_DIR$/client/app/requestFactory.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/views/chat.py" afterPath="$PROJECT_DIR$/client/app/views/chat.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/views/login.py" afterPath="$PROJECT_DIR$/client/app/views/login.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/views/register.py" afterPath="$PROJECT_DIR$/client/app/views/register.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/websocketHandler.py" afterPath="$PROJECT_DIR$/client/app/websocketHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/remote/app/core/chat.js" afterPath="$PROJECT_DIR$/remote/app/core/chat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/remote/app/routes/index.js" afterPath="$PROJECT_DIR$/remote/app/routes/index.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,21 +23,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-          <file leaf-file-name="requestMaker.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/app/requestMaker.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="290">
-                  <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="chat.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="chat.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/app/controller/chat.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="493">
-                  <caret line="17" column="57" lean-forward="false" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
+                <state relative-caret-position="377">
+                  <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
                   </folding>
@@ -60,8 +48,8 @@
           <file leaf-file-name="login.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/app/controller/login.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="58">
-                  <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+                <state relative-caret-position="319">
+                  <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
                   <folding>
                     <element signature="e#0#63#0" expanded="true" />
                   </folding>
@@ -69,11 +57,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="websocketHandler.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="websocketHandler.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/app/websocketHandler.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1247">
-                  <caret line="43" column="18" lean-forward="true" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+                <state relative-caret-position="898">
+                  <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#24#0" expanded="true" />
                   </folding>
@@ -81,12 +69,24 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="login.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/app/views/login.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="261">
+                  <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="chat.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/app/views/chat.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="29">
-                  <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-                  <folding />
+                <state relative-caret-position="899">
+                  <caret line="31" column="66" lean-forward="false" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
+                  <folding>
+                    <element signature="e#0#48#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -94,8 +94,8 @@
           <file leaf-file-name="currentChatView.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/app/views/currentChatView.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="608">
-                  <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+                <state relative-caret-position="202">
+                  <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="34" />
                   <folding>
                     <element signature="e#0#101#0" expanded="true" />
                   </folding>
@@ -106,8 +106,8 @@
           <file leaf-file-name="controller.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/app/controller/controller.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="348">
-                  <caret line="62" column="34" lean-forward="true" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+                <state relative-caret-position="290">
+                  <caret line="31" column="37" lean-forward="true" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
                   <folding>
                     <element signature="e#0#53#0" expanded="true" />
                   </folding>
@@ -118,8 +118,8 @@
           <file leaf-file-name="register.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/app/views/register.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="58">
-                  <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+                <state relative-caret-position="435">
+                  <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
                   <folding>
                     <element signature="e#0#104#0" expanded="true" />
                   </folding>
@@ -131,7 +131,7 @@
             <entry file="file://$PROJECT_DIR$/client/app/controller/register.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="493">
-                  <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+                  <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="28" />
                   <folding>
                     <element signature="e#0#63#0" expanded="true" />
                   </folding>
@@ -146,8 +146,8 @@
           <file leaf-file-name="requestFactory.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/app/requestFactory.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="957">
-                  <caret line="37" column="4" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+                <state relative-caret-position="377">
+                  <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -198,7 +198,6 @@
         <option value="$PROJECT_DIR$/client/app/controller/registerController.py" />
         <option value="$PROJECT_DIR$/client/app/controller/BaseController.py" />
         <option value="$PROJECT_DIR$/client/app/views/listUsers.py" />
-        <option value="$PROJECT_DIR$/client/app/views/login.py" />
         <option value="$PROJECT_DIR$/client/app/updateWorker.py" />
         <option value="$PROJECT_DIR$/client/app/views/mainWindow.py" />
         <option value="$PROJECT_DIR$/client/app/controller/baseController.py" />
@@ -214,14 +213,15 @@
         <option value="$PROJECT_DIR$/client/app/views/chatListView.py" />
         <option value="$PROJECT_DIR$/client/app/views/userListView.py" />
         <option value="$PROJECT_DIR$/client/app/views/currentChatView.py" />
-        <option value="$PROJECT_DIR$/client/app/controller/controller.py" />
-        <option value="$PROJECT_DIR$/client/app/controller/login.py" />
-        <option value="$PROJECT_DIR$/client/app/views/register.py" />
-        <option value="$PROJECT_DIR$/client/app/controller/register.py" />
-        <option value="$PROJECT_DIR$/client/app/views/chat.py" />
-        <option value="$PROJECT_DIR$/client/app/controller/chat.py" />
         <option value="$PROJECT_DIR$/client/app/websocketHandler.py" />
+        <option value="$PROJECT_DIR$/client/app/controller/controller.py" />
+        <option value="$PROJECT_DIR$/client/app/controller/register.py" />
+        <option value="$PROJECT_DIR$/client/app/controller/login.py" />
+        <option value="$PROJECT_DIR$/client/app/views/chat.py" />
+        <option value="$PROJECT_DIR$/client/app/views/login.py" />
+        <option value="$PROJECT_DIR$/client/app/views/register.py" />
         <option value="$PROJECT_DIR$/client/app/requestFactory.py" />
+        <option value="$PROJECT_DIR$/client/app/controller/chat.py" />
       </list>
     </option>
   </component>
@@ -602,16 +602,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/app/views/listUsers.py" />
-    <entry file="file://$PROJECT_DIR$/client/app/views/login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1044">
-          <caret line="38" column="33" lean-forward="false" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#104#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/python3/dist-packages/requests/sessions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7967">
@@ -720,20 +710,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/views/currentChatView.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#101#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/app/controller/controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="62" column="34" lean-forward="true" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+        <state relative-caret-position="290">
+          <caret line="31" column="37" lean-forward="true" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
           <folding>
             <element signature="e#0#53#0" expanded="true" />
           </folding>
@@ -742,20 +722,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/app/controller/login.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state relative-caret-position="319">
+          <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
           <folding>
             <element signature="e#0#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/views/register.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#104#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -763,45 +733,75 @@
     <entry file="file://$PROJECT_DIR$/client/app/controller/register.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
-          <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="28" />
           <folding>
             <element signature="e#0#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/controller/chat.py">
+    <entry file="file://$PROJECT_DIR$/client/app/views/chat.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="17" column="57" lean-forward="false" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
+        <state relative-caret-position="899">
+          <caret line="31" column="66" lean-forward="false" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/views/chat.py">
+    <entry file="file://$PROJECT_DIR$/client/app/views/currentChatView.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="202">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/views/login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/requestFactory.py">
+    <entry file="file://$PROJECT_DIR$/client/app/views/register.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="957">
-          <caret line="37" column="4" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
-          <folding />
+        <state relative-caret-position="435">
+          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#104#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/app/websocketHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1247">
-          <caret line="43" column="18" lean-forward="true" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+        <state relative-caret-position="898">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/requestFactory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/controller/chat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>

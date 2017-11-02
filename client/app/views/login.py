@@ -11,6 +11,9 @@ class LoginView(QWidget):
         self.__controller = controller
 
     def init_ui(self):
+        self.setMinimumWidth(900)
+        self.setMinimumHeight(600)
+
         self.setAutoFillBackground(True)
         pal = self.palette()
         pal.setColor(self.backgroundRole(), Qt.white)
@@ -39,18 +42,22 @@ class LoginView(QWidget):
         group_layout = QFormLayout()
         group.setLayout(group_layout)
 
+        url = QLineEdit()
+        url.setText("http://localhost:3030/api")
         ulabel = QLabel("USERNAME")
         uinput = QLineEdit()
         pwlable = QLabel("PASSWORD")
         pwinput = QLineEdit()
+        pwinput.setEchoMode(QLineEdit.Password)
 
         group_layout.setVerticalSpacing(30)
         group_layout.setHorizontalSpacing(120)
 
+        group_layout.addRow(QLabel("URL"), url)
         group_layout.addRow(ulabel, uinput)
         group_layout.addRow(pwlable, pwinput)
         submit = QPushButton("submit")
-        submit.clicked.connect(lambda: self.__controller.login(uinput.text(), pwinput.text()))
+        submit.clicked.connect(lambda: self.__controller.login(uinput.text(), pwinput.text(), url.text()))
         group_layout.addRow(submit)
 
         return group

@@ -11,6 +11,12 @@ class RequestFactory:
     def __init__(self, base_url="http://localhost:3030/api"):
         self.__url = base_url
 
+    def set_url(self, url):
+        self.__url = url
+
+    def get_url(self):
+        return self.__url
+
     def login_request(self, user, passw):
         return lambda: requests.post(self.__url + "/authenticate",
                                      {"name": user,

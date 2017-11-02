@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QWidget, QGridLayout
 from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QPushButton
 
 from client.app.views.currentChatView import CurrentChatView
 
@@ -27,6 +28,9 @@ class ChatView(QWidget):
         self.setLayout(layout)
         self.__chat_current = CurrentChatView(self, "")
         layout.addWidget(self.__chat_current, 0, 0)
+        logout = QPushButton("logout")
+        logout.clicked.connect(lambda : self.__controller.logout())
+        layout.addWidget(logout)
 
 
     def on_send_msg(self, msg):

@@ -6,9 +6,10 @@ class LoginController(BaseController):
     def __init__(self, model, parent_controller):
         BaseController.__init__(self, model, parent_controller)
 
-    def login(self, user, pw):
+    def login(self, user, pw, url):
         # handle press of submit button on login form
         factory = self._model.get_request_factory()
+        factory.set_url(url)
         req = factory.login_request(user, pw)
         self.request(req)
         print("LOGGING IN")

@@ -11,6 +11,8 @@ class RegisterView(QWidget):
         self.__controller = controller
 
     def init_ui(self):
+        self.setMinimumWidth(900)
+        self.setMinimumHeight(600)
         self.setAutoFillBackground(True)
         pal = self.palette()
         pal.setColor(self.backgroundRole(), Qt.white)
@@ -45,10 +47,12 @@ class RegisterView(QWidget):
         pw_repeat = QLineEdit()
         pw_repeat.setEchoMode(QLineEdit.Password)
         email = QLineEdit()
-
+        url = QLineEdit()
+        url.setText("http://localhost:3030/api")
         group_layout.setVerticalSpacing(30)
         group_layout.setHorizontalSpacing(120)
 
+        group_layout.addRow(QLabel("URL"), url)
         group_layout.addRow( QLabel("USERNAME"), uinput)
         group_layout.addRow(QLabel("EMAIL"), email)
         group_layout.addRow(QLabel("PASSWORD"), pwinput)
@@ -58,7 +62,8 @@ class RegisterView(QWidget):
         sub.clicked.connect(lambda: self.__controller.on_submit(uinput.text(),
                                                                 pwinput.text(),
                                                                 pw_repeat.text(),
-                                                                email.text()))
+                                                                email.text(),
+                                                                url.text()))
         group_layout.addRow(sub)
 
         return group
