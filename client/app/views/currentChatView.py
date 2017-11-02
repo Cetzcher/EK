@@ -20,7 +20,6 @@ class CurrentChatView(QWidget):
         chatBox.setReadOnly(True)
         layout.addWidget(chatBox, 1, 0)
 
-
         gb = QGroupBox()
         gb_layout = QGridLayout()
         reply = QLineEdit()

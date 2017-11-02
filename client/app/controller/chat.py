@@ -24,3 +24,4 @@ class ChatController(BaseController):
         # get text from chat box.
         # append msg to it
         self._view.update_text(msg)
+
