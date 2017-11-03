@@ -43,7 +43,7 @@ class LoginView(QWidget):
         group.setLayout(group_layout)
 
         url = QLineEdit()
-        url.setText("http://localhost:3030/api")
+        url.setText("http://localhost:9001/api")
         ulabel = QLabel("USERNAME")
         uinput = QLineEdit()
         pwlable = QLabel("PASSWORD")

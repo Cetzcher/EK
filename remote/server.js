@@ -1,11 +1,11 @@
 var express = require('express'),
   app = express(),
-  port = process.env.PORT || 3030;
+  port = process.env.PORT || 9001;  // changed port from 3030
 
 var mongoose = require('mongoose');
 
 //Set up default mongoose connection
-var mongoDB = 'mongodb://127.0.0.1/my_database';
+var mongoDB = 'mongodb://localhost:28000/my_database';
 mongoose.connect(mongoDB, {
   useMongoClient: true
 });
@@ -66,4 +66,5 @@ app.use("/*", function(req, res, next) {
 app.listen(port);
 console.log('There will be dragons: http://localhost:' + port);
 console.log("views @: " + __dirname + "/app/views");
-console.log(__dirname + '/app/routes/websocketRoutes')
+console.log(__dirname + '/app/routes/websocketRoutes');
+console.log(mongoDB);

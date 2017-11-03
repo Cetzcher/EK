@@ -17,8 +17,13 @@ router.post('/authenticate', function (req, res) {
     });
 });
 
+router.get("/test", function(req, res){
+    res.send("test");
+});
+
 // get all users.
 router.get('/users', function (req, res) {
+    console.log("fetching users");
     user.get_all(function(names){
         res.json({user_names: names});
     });

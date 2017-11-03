@@ -48,7 +48,7 @@ class RegisterView(QWidget):
         pw_repeat.setEchoMode(QLineEdit.Password)
         email = QLineEdit()
         url = QLineEdit()
-        url.setText("http://localhost:3030/api")
+        url.setText("http://localhost:9001/api")
         group_layout.setVerticalSpacing(30)
         group_layout.setHorizontalSpacing(120)
 
