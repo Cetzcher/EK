@@ -1,7 +1,6 @@
 ## EK
-=====================
 
-This repo contains the server (remote) and client of the Assignment
+This repo contains the server (remote) and client of the assignment
 
 
 ### Requirements:
