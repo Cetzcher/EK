@@ -70,7 +70,6 @@ router.all("/auth/*", function(req, res, next){
 
 router.ws('/echo', function(ws, req) {
     // check if this is the first req from client
-    // if it is, the first msg must be a token
     // authenticate the token
     // if the token is valid enable communication, otherwise deny msgs
 
