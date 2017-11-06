@@ -1,4 +1,4 @@
+*.pyc
 client/build/
-client/dist/
 .idea/
 remote/node_modules/

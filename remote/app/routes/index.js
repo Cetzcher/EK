@@ -84,7 +84,7 @@ router.ws('/echo', function(ws, req) {
 
     if(!is_mem){
         group.add_user(user, ws);
-        ws.send("You aren now connected to the chat!");
+        ws.send("You are now connected to the chat!");
     }
 
     ws.on('message', function(msg) {
