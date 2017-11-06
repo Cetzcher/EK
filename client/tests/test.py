@@ -23,10 +23,14 @@ def test_req_maker(args):
     json, keywords = args
     print(json, keywords)
     if keywords["test"] == "LOGIN":
-        pass
+        print("testing login")
+        assert json["success"] == True
+        print("success")
 
 def test_websocket(args):
-    print("websocket recieved:", args)
+    print("testing webscoket send/recv")
+    assert args == "You are now connected to the chat!"
+    print("successful")
 
 
 request_maker.callback.connect(lambda x: test_req_maker(x))
@@ -38,8 +42,6 @@ ws = websocketHandler.WebsocketHandler("ws://localhost:9001/api/echo", {"token":
 ws.msg_recv_callback.connect(lambda x: test_websocket(x))
 ws.start()
 
-# send a msg
-ws.queue_message("hello world")
 
 sys.exit(app.exec_())
 
