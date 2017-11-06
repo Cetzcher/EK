@@ -1,4 +1,4 @@
-client/build
-client/dist
+client/build/
+client/dist/
 .idea/
 remote/node_modules/
