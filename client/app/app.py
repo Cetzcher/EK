@@ -10,16 +10,7 @@ from client.app.websocketHandler import WebsocketHandler
 
 
 def main():
-    # read style sheet
-    s = ""
-    """
-    with open(os.path.dirname(__file__) + "/style.css") as file:
-        for line in file.readlines():
-            s += line + " "
-    """
-
     app = QApplication(sys.argv)
-    app.setStyleSheet(s)
     # setup MVC
     mw = MainWindow()
     Controller(mw, Model())
