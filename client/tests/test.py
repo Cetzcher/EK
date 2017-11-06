@@ -18,7 +18,7 @@ create_user = factory.register_request("regression_user", "regression_pw", "regg
 login_user = factory.login_request("regression_user", "regression_pw")
 request_maker = req_maker.RequestMaker()
 
-
+# test the login
 def test_req_maker(args):
     json, keywords = args
     print(json, keywords)
@@ -27,6 +27,7 @@ def test_req_maker(args):
         assert json["success"] == True
         print("success")
 
+# test the websocket
 def test_websocket(args):
     print("testing webscoket send/recv")
     assert args == "You are now connected to the chat!"
