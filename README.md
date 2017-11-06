@@ -17,7 +17,7 @@ To verify that the docker container with the user table is installed: GET  http:
 this shows the list of all usernames.
 
 #### Client:
-The client application is packaged via pyinstall so that no additional dependencies are required when running the app
+The client application is packaged via pyinstall so that no additional dependencies are required when running the app (the binary is found on: https://github.com/Cetzcher/EK_client_executable)
 However for the purpose of developing the app ypu should run **make install** (this installs pyqt5, pyinsaller and websocket-client using **pip3**)
 This requires pip3 to be availible. 
 To build the app via pyinstall run **make build**
