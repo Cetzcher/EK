@@ -21,7 +21,7 @@ class RegisterController(BaseController):
 
         if err:
             QMessageBox.about(self._view, "error", err)
-            return 
+            return
 
 
         print("creating request")
