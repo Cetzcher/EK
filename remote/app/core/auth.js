@@ -5,7 +5,7 @@ var bcrypt = require('bcrypt');
 function Auth ()
 {
 	this.last = 0;
-	this.tokens = {};	 
+	this.tokens = {testuser:"$2a$04$VReK9zJ49EEuHrjEZPb.TEST_USER.fg4ErqOguOuTa2Zs669t1e"};	 
 }
 
 // remove the token from the token list
