@@ -19,7 +19,7 @@
     "express": "~4.9.8",
     "express-ws": "^3.0.0",
     "jwt-simple": "^0.3.1",
-    "mongodb": "^2.2.33",
+    "mongodb": "^3.6.1",
     "mongoose": "^4.12.1",
     "morgan": "~1.5.0",
     "passport": "^0.3.2",
